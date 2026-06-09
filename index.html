@@ -23,45 +23,54 @@ body{
     background:
         radial-gradient(circle at top left,#2f3545 0%,#111827 35%,#0b0f19 100%);
     color:white;
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
 }
 
 .container{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:40px;
+    padding:24px;
 }
 
 .card{
     width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,0.05);
+    max-width:1000px;
+
+    background:rgba(255,255,255,.05);
     backdrop-filter:blur(16px);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
-    padding:50px;
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:32px;
+
     display:flex;
-    gap:50px;
     align-items:center;
+    gap:50px;
+
+    padding:50px;
 }
 
-.profile {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.15);
-    flex-shrink: 0;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+.profile{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+
+    border:4px solid rgba(255,255,255,.15);
+
+    flex-shrink:0;
+
+    transition:
+        transform .4s cubic-bezier(.16,1,.3,1),
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
-.profile:hover {
-    transform: scale(1.05);
-    border-color: rgba(96, 165, 251, 0.6);
-    box-shadow: 0 0 25px rgba(96, 165, 251, 0.2);
+.profile:hover{
+    transform:scale(1.05);
+    border-color:rgba(96,165,251,.6);
+    box-shadow:0 0 25px rgba(96,165,251,.2);
 }
 
 .content{
@@ -69,21 +78,23 @@ body{
 }
 
 .name{
-    font-size:3rem;
+    font-size:clamp(2.2rem,4vw,3.5rem);
     font-weight:700;
     margin-bottom:10px;
+    line-height:1.1;
 }
 
 .tagline{
     color:#9ca3af;
     font-size:1.1rem;
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
 .description{
     color:#d1d5db;
-    line-height:1.8;
-    margin-bottom:25px;
+    line-height:1.9;
+    margin-bottom:28px;
+    font-size:1rem;
 }
 
 .highlight{
@@ -94,26 +105,32 @@ body{
 .skills{
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    gap:12px;
 }
 
-.skill {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 10px 16px;
-    border-radius: 999px;
-    color: #dbeafe;
-    font-size: .9rem;
-    cursor: pointer;
-    transition: all 0.25s ease;
+.skill{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:10px 16px;
+    border-radius:999px;
+
+    color:#dbeafe;
+    font-size:.9rem;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
 }
 
-.skill:hover {
-    background: rgba(96, 165, 251, 0.15);
-    border-color: rgba(96, 165, 251, 0.4);
-    color: #60a5fa;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.skill:hover{
+    background:rgba(96,165,251,.15);
+    border-color:rgba(96,165,251,.4);
+    color:#60a5fa;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
 
 .footer{
@@ -122,19 +139,113 @@ body{
     font-size:.9rem;
 }
 
-@media(max-width:768px){
+/* ==========================
+   TABLET (iPad)
+   ========================== */
 
-    body{
-        overflow:auto;
+@media (max-width: 1024px){
+
+    .container{
+        padding:30px;
+    }
+
+    .card{
+        gap:35px;
+        padding:40px;
+    }
+
+    .profile{
+        width:180px;
+        height:180px;
+    }
+
+    .description{
+        font-size:.97rem;
+    }
+}
+
+/* ==========================
+   MOBILE
+   ========================== */
+
+@media (max-width: 768px){
+
+    .container{
+        padding:18px;
     }
 
     .card{
         flex-direction:column;
         text-align:center;
+
+        gap:24px;
+        padding:32px 24px;
+        border-radius:24px;
+    }
+
+    .profile{
+        width:140px;
+        height:140px;
+    }
+
+    .name{
+        font-size:2rem;
+    }
+
+    .tagline{
+        font-size:.95rem;
+        margin-bottom:20px;
+    }
+
+    .description{
+        font-size:.95rem;
+        line-height:1.7;
     }
 
     .skills{
         justify-content:center;
+    }
+
+    .skill{
+        padding:8px 14px;
+        font-size:.85rem;
+    }
+
+    .footer{
+        margin-top:24px;
+    }
+}
+
+/* ==========================
+   SMALL PHONES
+   ========================== */
+
+@media (max-width: 480px){
+
+    .card{
+        padding:24px 18px;
+    }
+
+    .profile{
+        width:120px;
+        height:120px;
+    }
+
+    .name{
+        font-size:1.75rem;
+    }
+
+    .description{
+        font-size:.9rem;
+    }
+
+    .skills{
+        gap:8px;
+    }
+
+    .skill{
+        width:100%;
+        text-align:center;
     }
 }
 
